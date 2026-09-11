@@ -1,1 +1,586 @@
-<PLACEHOLDER>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Súper Abuelos — Tu historia no terminó</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FAF1E7;
+    --cream-2: #F3E6D6;
+    --wine: #6E1A3C;
+    --wine-deep: #4C1129;
+    --gold: #C08A2E;
+    --gold-light: #E3B865;
+    --rose: #D9668A;
+    --ink: #2E1A1F;
+    --ink-soft: #5B4046;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Libre Franklin', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color:var(--wine-deep);
+    margin:0;
+  }
+  p{margin:0;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .eyebrow{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.05rem;
+    color:var(--rose);
+    margin-bottom:10px;
+    display:block;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:#3a0f22;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 20%;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(45,10,26,0.05) 0%, rgba(45,10,26,0.15) 40%, rgba(30,7,18,0.92) 92%);
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:0 28px 64px;
+    text-align:center;
+    color:var(--cream);
+  }
+  .hero-content .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.6rem, 9vw, 4.4rem);
+    letter-spacing:0.01em;
+    line-height:1;
+    background:linear-gradient(180deg, #F3D89A 0%, var(--gold) 55%, #A9761F 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:18px;
+  }
+  .hero-content .tagline{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.05rem, 3vw, 1.35rem);
+    color:#F3E3D0;
+    max-width:480px;
+    margin:0 auto 34px;
+  }
+  .btn{
+    position:relative;
+    display:inline-block;
+    background:linear-gradient(135deg, #F3D89A 0%, var(--gold) 45%, #B87A22 100%);
+    color:var(--wine-deep);
+    font-family:'Libre Franklin', sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    padding:16px 44px;
+    border-radius:2px;
+    letter-spacing:0.01em;
+    border:1px solid var(--gold-light);
+    overflow:visible;
+    animation:btn-pulse 2.4s ease-in-out infinite;
+    transition:transform 0.15s ease, filter 0.2s ease;
+  }
+  .btn:hover{
+    filter:brightness(1.08);
+    transform:translateY(-1px);
+  }
+  .btn .spark{
+    position:absolute;
+    color:#FFF6DE;
+    font-size:0.85rem;
+    pointer-events:none;
+    animation:spark-twinkle 2.4s ease-in-out infinite;
+  }
+  .btn .spark.s1{top:-6px;left:14%;animation-delay:0s;}
+  .btn .spark.s2{bottom:-8px;right:18%;font-size:0.65rem;animation-delay:0.6s;}
+  .btn .spark.s3{top:10%;right:-10px;font-size:0.7rem;animation-delay:1.2s;}
+
+  @keyframes btn-pulse{
+    0%, 100%{box-shadow:0 0 0 0 rgba(192,138,46,0.55);}
+    50%{box-shadow:0 0 0 14px rgba(192,138,46,0);}
+  }
+  @keyframes spark-twinkle{
+    0%, 100%{opacity:0; transform:scale(0.6) rotate(0deg);}
+    50%{opacity:1; transform:scale(1.15) rotate(20deg);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .btn, .btn .spark{animation:none;}
+  }
+  .btn-secondary{
+    background:transparent;
+    color:var(--wine-deep);
+    border:1.5px solid var(--wine-deep);
+  }
+  .btn-secondary:hover{
+    background:var(--wine-deep);
+    color:var(--cream);
+  }
+
+  /* ---------- GENERIC SECTIONS ---------- */
+  section{
+    padding:88px 0;
+  }
+  section.tight{padding:64px 0;}
+  .lede{
+    font-size:clamp(1.5rem, 4vw, 2rem);
+    line-height:1.35;
+    color:var(--wine-deep);
+    max-width:560px;
+  }
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+  .body-text{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:520px;
+  }
+
+  /* intro / opening statement */
+  .intro{background:var(--cream);}
+  .intro .lede{margin-bottom:22px;}
+
+  /* feelings list */
+  .feelings{
+    background:var(--wine-deep);
+    color:var(--cream);
+  }
+  .feelings h2{
+    color:var(--cream);
+    font-size:clamp(1.6rem, 4.2vw, 2.1rem);
+    max-width:520px;
+    margin-bottom:36px;
+  }
+  .feelings ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+  }
+  .feelings li{
+    padding:18px 0;
+    border-top:1px solid rgba(243,216,154,0.22);
+    font-size:1.12rem;
+    color:#F1DFCB;
+    display:flex;
+    gap:16px;
+    align-items:baseline;
+  }
+  .feelings li:last-child{border-bottom:1px solid rgba(243,216,154,0.22);}
+  .feelings li .mark{
+    color:var(--gold-light);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    flex-shrink:0;
+  }
+  .feelings .close{
+    margin-top:36px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--gold-light);
+  }
+
+  /* pull quote: no se trata de volver a los 30 */
+  .quote-block{
+    background:var(--cream-2);
+    text-align:center;
+  }
+  .quote-block .wrap{max-width:620px;}
+  .quote-block .big{
+    font-size:clamp(1.7rem, 5vw, 2.5rem);
+    line-height:1.3;
+    color:var(--wine);
+    margin-bottom:22px;
+  }
+  .quote-block .small{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:440px;
+    margin:0 auto;
+  }
+  .quote-block .small + .small{margin-top:12px;}
+
+  /* topics grid */
+  .topics{background:var(--cream);}
+  .topics h2{
+    font-size:clamp(1.7rem, 4.5vw, 2.2rem);
+    text-align:center;
+    margin-bottom:14px;
+  }
+  .topics .sub{
+    text-align:center;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin:0 auto 52px;
+    font-size:1.05rem;
+  }
+  .topic-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .topic{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:20px;
+    padding:26px 0;
+    border-top:1px solid rgba(110,26,60,0.15);
+    align-items:start;
+  }
+  .topic:last-child{border-bottom:1px solid rgba(110,26,60,0.15);}
+  .topic .icon{
+    font-size:1.9rem;
+    line-height:1;
+    margin-top:2px;
+  }
+  .topic h3{
+    font-size:1.28rem;
+    color:var(--wine);
+    margin-bottom:6px;
+  }
+  .topic p{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    max-width:460px;
+  }
+
+  /* new outlook on aging - poetic lines */
+  .outlook{
+    background:var(--wine);
+    color:var(--cream);
+    text-align:center;
+  }
+  .outlook h2{
+    color:#F7E9CE;
+    font-size:clamp(1.6rem, 4.2vw, 2.1rem);
+    margin-bottom:40px;
+  }
+  .outlook .lines{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(1.15rem, 3.2vw, 1.45rem);
+    line-height:1.9;
+    color:#F3E3D0;
+  }
+  .outlook .footnote{
+    margin-top:40px;
+    font-family:'Libre Franklin', sans-serif;
+    font-style:normal;
+    font-size:1rem;
+    color:#D8B9C6;
+    max-width:480px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* checklist: este libro es para vos si */
+  .checklist{background:var(--cream);}
+  .checklist h2{
+    text-align:center;
+    font-size:clamp(1.7rem, 4.5vw, 2.2rem);
+    margin-bottom:46px;
+  }
+  .check-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 32px;
+  }
+  .check-item{
+    display:flex;
+    gap:14px;
+    padding:16px 0;
+    align-items:flex-start;
+    border-top:1px solid rgba(110,26,60,0.12);
+    font-size:1.03rem;
+    color:var(--ink);
+  }
+  .check-item .tick{
+    color:var(--gold);
+    font-size:1.15rem;
+    font-family:'Fraunces', serif;
+    flex-shrink:0;
+  }
+
+  /* gift section */
+  .gift{
+    background:var(--cream-2);
+  }
+  .gift .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .gift h2{
+    font-size:clamp(1.6rem, 4.2vw, 2rem);
+    margin-bottom:20px;
+  }
+  .gift .names{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.35rem;
+    color:var(--wine);
+    line-height:2.1;
+  }
+  .gift p{color:var(--ink-soft);font-size:1.05rem;}
+
+  /* final CTA */
+  .final{
+    background:var(--wine-deep);
+    color:var(--cream);
+    text-align:center;
+  }
+  .final h2{
+    color:var(--cream);
+    font-size:clamp(2rem, 6vw, 2.8rem);
+    margin-bottom:16px;
+  }
+  .final .tag{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--gold-light);
+    font-size:1.2rem;
+    margin-bottom:36px;
+    display:block;
+  }
+  .final .btn{margin-bottom:22px;}
+  .final .note{
+    font-size:0.95rem;
+    color:#D8B9C6;
+  }
+
+  footer{
+    background:var(--wine-deep);
+    color:#C9A6B4;
+    text-align:center;
+    padding:0 28px 48px;
+    font-size:0.85rem;
+  }
+  footer .wrap{max-width:560px;border-top:1px solid rgba(243,216,154,0.15);padding-top:28px;}
+
+  @media (max-width:640px){
+    section{padding:64px 0;}
+    .check-grid{grid-template-columns:1fr;}
+    .gift .grid{grid-template-columns:1fr;gap:28px;}
+    .topic{grid-template-columns:44px 1fr;gap:14px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&q=80" alt="Pareja mayor sonriendo, bailando con alegría">
+  <div class="hero-content">
+    <span class="brand">Súper Abuelos</span>
+    <p class="tagline">Tu historia no terminó. Está comenzando una nueva etapa.</p>
+    <a class="btn" href="https://pay.hotmart.com/S102863522T" target="_blank" rel="noopener">Quiero mi ejemplar<span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span></a>
+  </div>
+</div>
+
+<section class="intro">
+  <div class="wrap center">
+    <span class="eyebrow">Para hombres y mujeres mayores de 60</span>
+    <p class="lede">Envejecer no significa dejar de disfrutar, aprender, amar, descubrir y proyectarse. Significa entrar en una nueva etapa — y esa etapa también puede ser extraordinaria.</p>
+    <p class="body-text center">Súper Abuelos es una guía práctica para recuperar vitalidad, autoestima, bienestar y conexión con la vida, con una mirada integral sobre el cuerpo, la mente, los vínculos y los proyectos.</p>
+  </div>
+</section>
+
+<section class="feelings">
+  <div class="wrap">
+    <h2>¿Sentís que algo cambió con los años?</h2>
+    <ul>
+      <li><span class="mark">·</span> Te falta energía.</li>
+      <li><span class="mark">·</span> Dejaste algunos proyectos para después.</li>
+      <li><span class="mark">·</span> Tu autoestima ya no es la misma.</li>
+      <li><span class="mark">·</span> Tu cuerpo cambió y necesitás adaptarte.</li>
+      <li><span class="mark">·</span> Tu vida social se redujo.</li>
+      <li><span class="mark">·</span> Dejaste de dedicarte tiempo.</li>
+      <li><span class="mark">·</span> Tu relación de pareja cambió.</li>
+      <li><span class="mark">·</span> Sentís que necesitás volver a entusiasmarte.</li>
+    </ul>
+    <p class="close">Si alguna de estas situaciones te resulta familiar, Súper Abuelos puede ser un punto de partida.</p>
+  </div>
+</section>
+
+<section class="quote-block">
+  <div class="wrap">
+    <p class="big">No se trata de volver a tener 30 años. Se trata de aprovechar mejor los años que tenés por delante.</p>
+    <p class="small">No necesitás negar tu edad. Necesitás descubrir qué podés hacer con ella.</p>
+    <p class="small">Tu experiencia, tus conocimientos y todo lo que aprendiste durante tu vida son activos enormes. Ahora podés utilizarlos para construir una etapa diferente.</p>
+  </div>
+</section>
+
+<section class="topics">
+  <div class="wrap">
+    <h2>¿Qué vas a encontrar en Súper Abuelos?</h2>
+    <p class="sub">Una guía digital pensada para esta nueva etapa de la vida, con contenidos para reflexionar y desarrollar hábitos en siete áreas.</p>
+    <div class="topic-list">
+      <div class="topic">
+        <div class="icon">🧠</div>
+        <div>
+          <h3>Mente</h3>
+          <p>Mantener una vida mental activa, aprender, estimular la curiosidad y seguir desarrollando nuevas habilidades.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="icon">❤️</div>
+        <div>
+          <h3>Bienestar</h3>
+          <p>Incorporar pequeñas decisiones cotidianas que favorezcan una vida más activa y saludable.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="icon">💪</div>
+        <div>
+          <h3>Vitalidad</h3>
+          <p>Comprender la importancia del movimiento, el descanso y los hábitos saludables.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="icon">💎</div>
+        <div>
+          <h3>Autoestima</h3>
+          <p>Volver a reconocer tu propio valor y construir una relación más positiva con vos mismo.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="icon">🤝</div>
+        <div>
+          <h3>Relaciones</h3>
+          <p>Fortalecer los vínculos, la comunicación, el afecto y la conexión con otras personas.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="icon">🔥</div>
+        <div>
+          <h3>Intimidad y deseo</h3>
+          <p>Hablar con naturalidad de una dimensión de la vida que también forma parte del bienestar en la adultez.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="icon">🌱</div>
+        <div>
+          <h3>Nuevos proyectos</h3>
+          <p>Porque todavía podés aprender, crear, viajar, emprender, enseñar, amar y comenzar cosas nuevas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="outlook">
+  <div class="wrap">
+    <h2>Una nueva mirada sobre el envejecimiento</h2>
+    <p class="lines">
+      La edad no define todo lo que sos.<br>
+      Tu cerebro continúa adaptándose.<br>
+      Tu cuerpo responde a los estímulos.<br>
+      Tus hábitos pueden modificarse.<br>
+      Tus vínculos pueden fortalecerse.<br>
+      Y tus proyectos pueden renovarse.
+    </p>
+    <p class="footnote">La ciencia del envejecimiento no habla solamente de años. También habla de adaptación, actividad, hábitos y calidad de vida.</p>
+  </div>
+</section>
+
+<section class="checklist">
+  <div class="wrap">
+    <h2>Este libro es para vos si...</h2>
+    <div class="check-grid">
+      <div class="check-item"><span class="tick">✓</span> Tenés más de 60 años y querés sentirte más activo.</div>
+      <div class="check-item"><span class="tick">✓</span> Querés recuperar motivación.</div>
+      <div class="check-item"><span class="tick">✓</span> Querés mejorar tus hábitos cotidianos.</div>
+      <div class="check-item"><span class="tick">✓</span> Querés cuidar tu cuerpo y mantener activa tu mente.</div>
+      <div class="check-item"><span class="tick">✓</span> Querés fortalecer tu autoestima.</div>
+      <div class="check-item"><span class="tick">✓</span> Querés disfrutar más de tus relaciones.</div>
+      <div class="check-item"><span class="tick">✓</span> Querés recuperar proyectos personales.</div>
+      <div class="check-item"><span class="tick">✓</span> Querés comenzar una nueva etapa.</div>
+    </div>
+  </div>
+</section>
+
+<section class="gift">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2>También es un regalo especial</h2>
+        <p>¿Conocés a alguien que siempre está cuidando a los demás y se olvidó de sí mismo? Súper Abuelos puede ser un regalo para recordarle algo importante: todavía hay mucho por vivir.</p>
+      </div>
+      <div class="names">
+        Un padre.<br>
+        Una madre.<br>
+        Un abuelo.<br>
+        Una abuela.<br>
+        Un amigo.<br>
+        Una pareja.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="comprar">
+  <div class="wrap">
+    <span class="tag">Tu próxima etapa puede ser diferente</span>
+    <h2>Conseguí Súper Abuelos</h2>
+    <p class="body-text center" style="color:#EAD4DB; margin-bottom:34px;">No esperes a sentirte completamente preparado. Empezá con una decisión. Después, un hábito. Después, otro.</p>
+    <a class="btn" href="https://pay.hotmart.com/S102863522T" target="_blank" rel="noopener">Comprar Súper Abuelos<span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span></a>
+    <p class="note">Guía digital · Acceso inmediato</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Súper Abuelos — Tu historia no terminó</p>
+  </div>
+</footer>
+
+</body>
+</html>
